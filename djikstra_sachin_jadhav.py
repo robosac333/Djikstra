@@ -13,6 +13,7 @@ import time
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 import numpy as np
+from matplotlib.animation import FuncAnimation
 
 '''
 Defining the Environment
@@ -120,27 +121,8 @@ def get_path(predecessor, start, goal):
     path.reverse()
     print(path)
     return path
-
+    
 if __name__ == "__main__":
-
-    '''
-    Specify the initial and goal points here
-    '''
-    # x_initial, y_initial, x_goal, y_goal = give_inputs()
-    x_initial = 450
-    y_initial = 250
-    # # x_goal = 1190
-    # # y_goal = 6
-    x_goal = 800
-    y_goal = 250
-    '''
-    Defining the Djikstra Algorithm
-    '''
-    open_list = []
-    hq.heapify(open_list)
-    c2c = 0
-    start = (c2c, (x_initial, y_initial))
-    goal = (c2c, (x_goal, y_goal))
 
     '''
     Plotting the Environment
@@ -150,6 +132,25 @@ if __name__ == "__main__":
     ax.add_patch(rect)
     ax.add_patch(rect1)
     ax.add_patch(right_half_square)
+
+    '''
+    Specify the initial and goal points here
+    '''
+    # x_initial, y_initial, x_goal, y_goal = give_inputs()
+    x_initial = 5
+    y_initial = 5
+    x_goal = 1190
+    y_goal = 6
+    # x_goal = 800
+    # y_goal = 250
+    '''
+    Defining the Djikstra Algorithm
+    '''
+    open_list = []
+    hq.heapify(open_list)
+    c2c = 0
+    start = (c2c, (x_initial, y_initial))
+    goal = (c2c, (x_goal, y_goal))
 
     # Add a circle around the goal point
     circle_radius = 20
@@ -221,8 +222,9 @@ if __name__ == "__main__":
                             visited_x = [node[0] for node in visited_nodes]
                             visited_y = [node[1] for node in visited_nodes]
                             ax.plot(visited_x, visited_y, 'go', alpha=0.3, markersize=0.2)
-                            plt.pause(0.001)
-                        
+                            plt.pause(0.01)
+
+
                         
                 else:
                     # If the node is in the open list, check if the cost to move from the current node to the neighbor node is less than the cost to move from the start node to the neighbor node
@@ -234,29 +236,19 @@ if __name__ == "__main__":
                                     c2c = node[0] + c2c_step
                                         
 
-'''
-Plotting the Environment
-'''
-# Add the patch to the Axes
-ax.add_patch(hexagon)
-ax.add_patch(rect)
-ax.add_patch(rect1)
-ax.add_patch(right_half_square)
+    # set the x and y limits of the axis
+    ax.set_xlim(0, 1200)
+    ax.set_ylim(0, 500)
 
-# set the x and y limits of the axis
-ax.set_xlim(0, 1200)
-ax.set_ylim(0, 500)
+    # Plot the initial and goal points
+    ax.plot(x_initial, y_initial, 'bo', label='Initial Point')
+    ax.plot(x_goal, y_goal, 'go', label='Goal Point')
 
-# Plot the initial and goal points
-ax.plot(x_initial, y_initial, 'bo', label='Initial Point')
-ax.plot(x_goal, y_goal, 'go', label='Goal Point')
+    # Plot the path nodes
+    for node in path:
+        ax.plot(node[0], node[1], 'ro', alpha=0.3, markersize=1)
 
-# Plot the path nodes
-for node in path:
-    ax.plot(node[0], node[1], 'ro', alpha=0.3, markersize=1)
-
-# Pause for a short duration to show the plot
-plt.pause(0.1)
-# display the plot
-plt.show()
+    plt.pause(0.001)
+    # display the plot
+    plt.show()
 
