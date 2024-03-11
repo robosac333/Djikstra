@@ -244,8 +244,8 @@ if __name__ == "__main__":
     end_time = time.time()
 
     # Print the time taken to find the path
-    print("Time taken to find the path:", end_time - start_time)
-    
+    print("Time taken to find the path:", (end_time - start_time)/60, "minutes")
+
     # set the x and y limits of the axis
     ax.set_xlim(0, 1200)
     ax.set_ylim(0, 500)
