@@ -13,7 +13,6 @@ import time
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 import numpy as np
-from matplotlib.animation import FuncAnimation
 
 '''
 Defining the Environment
@@ -140,13 +139,13 @@ if __name__ == "__main__":
     '''
     Specify the initial and goal points here
     '''
-    # x_initial, y_initial, x_goal, y_goal = give_inputs()
-    x_initial = 400
-    y_initial = 250
-    # x_goal = 1190
-    # y_goal = 6
-    x_goal = 800
-    y_goal = 250
+    x_initial, y_initial, x_goal, y_goal = give_inputs()
+    # x_initial = 400
+    # y_initial = 250
+    # # x_goal = 1190
+    # # y_goal = 6
+    # x_goal = 800
+    # y_goal = 250
 
     '''
     Defining the Djikstra Algorithm
