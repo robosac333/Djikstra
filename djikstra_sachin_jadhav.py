@@ -125,6 +125,10 @@ def get_path(predecessor, start, goal):
 if __name__ == "__main__":
 
     '''
+    Set the time to 0
+    '''
+    start_time = time.time()
+    '''
     Plotting the Environment
     '''
     # Add the patch to the Axes
@@ -137,12 +141,13 @@ if __name__ == "__main__":
     Specify the initial and goal points here
     '''
     # x_initial, y_initial, x_goal, y_goal = give_inputs()
-    x_initial = 5
-    y_initial = 5
-    x_goal = 1190
-    y_goal = 6
-    # x_goal = 800
-    # y_goal = 250
+    x_initial = 400
+    y_initial = 250
+    # x_goal = 1190
+    # y_goal = 6
+    x_goal = 800
+    y_goal = 250
+
     '''
     Defining the Djikstra Algorithm
     '''
@@ -235,7 +240,12 @@ if __name__ == "__main__":
                                     predecessor[(neighbor_x, neighbor_y)] = (node[1][0], node[1][1])
                                     c2c = node[0] + c2c_step
                                         
+    # Record the end time
+    end_time = time.time()
 
+    # Print the time taken to find the path
+    print("Time taken to find the path:", end_time - start_time)
+    
     # set the x and y limits of the axis
     ax.set_xlim(0, 1200)
     ax.set_ylim(0, 500)
