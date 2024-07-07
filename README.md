@@ -7,5 +7,4 @@ On running the program, the prompt asks for start and goal x, y positions. If an
 
 I have given an offset of 5 for all the shapes and the arena limits so follwing are the minimum and maximum arena points: minimum_x, minimum_y = 6, 6 maximum_x, maximum_y = 1194, 494
 
-Link of the Github Repository
-https://github.com/robosac333/Djikstra-Implementation-in-a-maze-.git
+![Djikstra on a Point Robot](Djikstra.gif)
