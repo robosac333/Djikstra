@@ -1,4 +1,4 @@
-# Djikstra-Implementation-in-a-maze-
+# Djikstra-Implementation-in-a-maze
 Created a 1200 x 500 maze with obstacles and solved using Djikstra algorithm
 
 Libraries used : import heapq as hq import time import matplotlib.pyplot as plt import matplotlib.patches as patches import numpy as np
